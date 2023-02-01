@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 虚拟dom是什么？ -js 对象
+      // 虚拟dom三要素，tatget为必需项，下一步就是 document.creatElement()
+        let obj = {
+          target: 'ul',
+          attr: 'abc',
+          children: [
+            {}
+          ]
+        }
+    // 1.1 用来做什么？ - 进行diff算法比较
+    // 1.2 如何提升vue的渲染效率？- 将直接操作dom（影响浏览器性能）变成 两份js对象的比较（执行效率上的问题）
+
+
+    // 2. Vue data() 为什么是一个函数？ - 因为是一个闭包
+    // 2.1 用到的是闭包的什么特性？ - 闭包特性1，数据的私密性 - 闭包特性2，延长变量的生命周期
+
+    // 3. Vue父子组件生命周期加载的时候执行顺序？
+    // 8个生命周期，创建前后，挂载前后，更新前后，销毁前后。此问题问的是前面四个周期
+    // 父 beforeCreate => 父 created => 父 beforeMount => 子 beforeCreate => 子 created => 子 beforeMount => 子 mounted => 父 mounted 
+    // 子组件 => 父组件 => app.vue
+    // 子组件是父组件的一部分，所以必须加载完后父组件再进行挂载
+  </script>
+</body>
+</html>

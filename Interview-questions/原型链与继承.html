@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>原型链与继承</h2>
+  <script>
+    // 原型与原型链
+    // prototype 原型，是函数特有的，在 function 上，挂在原型链上的东西是可以被继承的
+    // [[Prototype]] === __proto__ 原型链
+    // 对象的原型链，一定指向构造他的（new XXX）XXX的原型
+    // 原型链查找规则，当前实例开始，一层一层往上，__proto__ 直到 null
+    // Array 的 __proto__ 是 Object
+
+    // 1、函数可以通过Function new出来，那么Function可以被称作构造函数，被new出来的函数可以被称为一个对象
+    // 2、Function既然是构造函数，那么肯定也有原型，它的原型是一个空的函数
+    // 3、Function的原型对象的原型对象最终指向的是object.prototype
+    let obj = {
+      fn: function () {
+        console.log(1111111111)
+      }
+    }
+
+    obj.fn()
+    console.log(obj)
+    console.log(obj.prototype)
+    console.log(obj.__proto__)
+    console.log('-----------')
+    console.log(Object)
+    console.log(Object.prototype)
+    console.log(Object.assign)
+    console.log(obj.assign) // undefined
+    // 对象的原型链，一定指向构造他的（new XXX）XXX的原型
+    console.log(obj.__proto__ === Object.prototype)
+    
+    console.log('-----------')
+    console.log(Object.prototype.__proto__)
+    console.log(Array.prototype)
+    console.log(Function.prototype.__proto__)
+
+    function Abc() {
+      
+    }
+    Abc.prototype.demo = 123
+    console.log('-----------')
+    console.log(Abc)
+    console.log(Abc.prototype)
+    console.log(Abc.prototype === Abc.prototype.constructor.prototype) // true
+
+    // 挂在原型链上的东西是可以被继承的
+    let aa = new Abc()
+    console.log(aa)
+  </script>
+</body>
+</html>
